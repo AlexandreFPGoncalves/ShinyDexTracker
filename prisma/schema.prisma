@@ -10,12 +10,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
-
 // Necessary for Next auth
 model Account {
     id                String  @id @default(cuid())
@@ -43,6 +37,14 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+model VerificationToken {
+    identifier String
+    token      String   @unique
+    expires    DateTime
+
+    @@unique([identifier, token])
+}
+
 model User {
     id            String    @id @default(cuid())
     name          String?
@@ -51,12 +53,23 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    admin         Boolean   @default(false)
+    streamer      Boolean   @default(false)
+    Shinies       Shiny[]
 }
 
-model VerificationToken {
-    identifier String
-    token      String   @unique
-    expires    DateTime
-
-    @@unique([identifier, token])
+model Shiny {
+    id         String   @id @default(cuid())
+    trainer    User     @relation(fields: [trainerId], references: [id])
+    trainerId  String
+    name       String
+    nickname   String
+    dexEntry   Int
+    encounters Int
+    method     String
+    pokeball   String
+    gender     String
+    origin     String
+    capturedAt DateTime
+    charmed    Boolean
 }

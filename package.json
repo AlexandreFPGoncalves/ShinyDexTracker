@@ -2,7 +2,7 @@
   "name": "shinydextracker",
   "author": "AlexandreFPGoncalves",
   "description": "ShinyDexTracker is a revolutionary app designed specifically for shiny hunters, providing them with the ultimate platform to display and showcase their prized collection of shiny Pokémon.",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "build": "next build",
