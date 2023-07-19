@@ -1,5 +1,5 @@
 export interface Path {
-  name?: string;
+  name: string;
   href: string;
   icon?: string | React.ReactNode;
 }

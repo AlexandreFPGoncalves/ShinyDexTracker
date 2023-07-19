@@ -8,7 +8,8 @@ export default {
         Figtree: "Figtree, sans-serif",
       },
       boxShadow: {
-        inset: " inset 0px 0px 41px 18px rgba(0,0,0,0.55)",
+        inset: "inset 0px 0px 41px 18px rgba(0,0,0,0.55)",
+        navbar: "0px 1px 3px 0px rgba(0,0,0,0.10)",
       },
     },
   },
